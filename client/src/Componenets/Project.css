@@ -31,9 +31,11 @@
   display: flex;
   justify-content: space-around;
   text-align: left;
+  font-size: 1.5em;
 }
 .project .project-information h1 {
   text-align: center;
+  color: lavender;
 }
 
 .project.active {

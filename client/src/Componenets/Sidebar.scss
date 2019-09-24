@@ -1,0 +1,33 @@
+@import "../_variables.scss";
+
+.sidebar{
+  display: inline;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 25px;
+  margin-bottom: 5vh;
+}
+
+.logo{
+  margin: 15px;
+  width: 30px;
+  height: 30px;
+  transition-duration: .25s;
+
+  path{
+    fill: $normal-text;
+  }
+}
+
+.logo:hover{
+  transform: translateY(-10px);
+
+  path{
+    fill: $primary-color;
+  }
+}

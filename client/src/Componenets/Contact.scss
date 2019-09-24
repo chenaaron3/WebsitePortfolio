@@ -29,6 +29,7 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .input-field{
@@ -69,6 +70,10 @@ form {
     top: -25px;
     color: $primary-color;
   }
+}
+
+.input-submit{
+  width: 100px;
 }
 
 #message{

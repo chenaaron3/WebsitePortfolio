@@ -40,6 +40,13 @@ class Projects extends Component {
             </p>
         )
 
+        const circuitDirections = (
+            <p>
+                - Use your mouse to move pieces around<br/>
+                - Helps visualize how functions work in programming.
+            </p>
+        )
+
         const hashsetDirections = (
             <p>
                 - Add nodes to the hashset<br/>
@@ -51,15 +58,28 @@ class Projects extends Component {
 
         const todoDirections = (
             <p>
-                - Create an account to keep a personalized todo list
+                - Create an account to keep a personalized todo list<br/>
+                - Note: may need to hide and reopen due to heroku rebooting time.
+            </p>
+        )
+
+        const reclaimEarthDirections = (
+            <p>
+                - Login with google to find trash around your area.<br/>
+                - Add a ping to notify others of a trash site.<br/>
+                - Click on a ping to contribute or resolve a trash site.
             </p>
         )
 
         return (
             <div className="section" id="projects">
-                <h1 className="title">3. Projects</h1>
-                <h1 className="project-section">Machine Learning</h1>
-                <div className="projects">
+                <div data-aos="fade-up">
+                    <h1 className="title">3. Projects</h1>
+                </div>
+                <div data-aos="fade-up">
+                    <h1 className="project-section">Machine Learning</h1>
+                </div>
+                <div className="projects" data-aos="fade-up">
                     <Project title="Flappy Bird AI"
                              url="https://i.simmer.io/@apkirito/flappyai"
                              description="Train your own birds to play Flappy Bird."
@@ -71,8 +91,10 @@ class Projects extends Component {
                              directions={steeringDirections}
                              tools={["Neural Network", "Matrices", "Neuro-evolution", "Unity"]}/>
                 </div>
-                <h1 className="project-section">Unity Development</h1>
-                <div className="projects">
+                <div data-aos="fade-up">
+                    <h1 className="project-section">Unity Development</h1>
+                </div>
+                <div className="projects" data-aos="fade-up">
                     <Project title="Hashset"
                              url="https://i.simmer.io/@apkirito/hashset"
                              description="Vizualise how a hashset stores its data."
@@ -83,14 +105,26 @@ class Projects extends Component {
                              description="Survive by activating weapons and avoiding enemies."
                              directions={mtlDirections}
                              tools={["Unity"]}/>
+                    <Project title="Circuit"
+                             url="https://i.simmer.io/@apkirito/circuit"
+                             description="Arrange action operators to lead a robot to its destination."
+                             directions={circuitDirections}
+                             tools={["Unity"]}/>
                 </div>
-                <h1 className="project-section">Web Development</h1>
-                <div className="projects">
+                <div data-aos="fade-up">
+                    <h1 className="project-section">Web Development</h1>
+                </div>
+                <div className="projects" data-aos="fade-up">
                     <Project title="Todo List"
                              url="https://achenexpresslogin.herokuapp.com/"
                              description="Full stack todo list that organizes personalized tasks."
                              directions={todoDirections}
                              tools={["HTML", "CSS", "Javascript", "NodeJS", "Express", "Webpack"]}/>
+                    <Project title="Reclaim Earth"
+                             url="https://reclaimearth.herokuapp.com/"
+                             description="Crowdsourcing website designed to clean up trash."
+                             directions={reclaimEarthDirections}
+                             tools={["HTML", "CSS", "Javascript", "Flask", "Firestore", "Maps API"]}/>
                 </div>
                 <hr/>
             </div>

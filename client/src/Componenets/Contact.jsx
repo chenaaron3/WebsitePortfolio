@@ -57,29 +57,33 @@ class Contact extends Component {
     render() {
         return (
             < div className="section" id="contact">
-                <h1 className="title">4. Contact</h1>
+                <div data-aos="fade-up">
+                    <h1 className="title">4. Contact</h1>
+                </div>
                 <div id="contact-body">
                     <div id="contact-immediate">
                         <form onSubmit={this.handleSubmit}>
-                            <div className="input-field">
+                            <div className="input-field" data-aos="fade-up">
                                 <input value={this.state.senderEmail} type="text" name="sender-email"
                                        onChange={this.handleChange} required/>
                                 <label>Your Email</label>
                             </div>
-                            <div className="input-field">
+                            <div className="input-field" data-aos="fade-up">
                                 <input value={this.state.subject} type="text" name="subject"
                                        onChange={this.handleChange} required/>
                                 <label>Subject</label>
                             </div>
-                            <div className="input-field" id="message">
+                            <div className="input-field" id="message" data-aos="fade-up">
                                 <textarea value={this.state.message} name="message" onChange={this.handleChange}
                                           required/>
                                 <label>Message</label>
                             </div>
-                            <input type="submit" className="flashy-link" id="contact-send" value="Send!"/>
+                            <div className="input-submit" data-aos="fade-up">
+                                <input type="submit" className="flashy-link" id="contact-send" value="Send!"/>
+                            </div>
                         </form>
                     </div>
-                    <div id="contact-information">
+                    <div id="contact-information" data-aos="fade-up">
                         <p>
                             Feel free to contact me at anytime. I will try to respond as timely as possible!<br/>
                             Email: <a href="mailto: chenaaron3@gmail.com">chenaaron3@gmail.com</a><br/>

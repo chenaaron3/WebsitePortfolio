@@ -6,32 +6,42 @@ class Experience extends Component {
     render() {
         return (
             <div className="section" id="experience">
-                <h1 className="title">2. Experience</h1>
-                <h2>Here are some of the skills I possess:</h2>
-                <div id="experience-list">
-                    <ul>
-                        <h1>Languages</h1>
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>C++</li>
-                        <li>C#</li>
-                        <li>JavaScript</li>
-                        <li>HTML</li>
-                        <li>(S)CSS</li>
-                        <li>x86 Assembly</li>
-                    </ul>
-                    <ul>
-                        <h1>Technologies</h1>
-                        <li>TensorFlow</li>
-                        <li>Neural Networks</li>
-                        <li>Unity</li>
-                        <li>NodeJS</li>
-                        <li>React</li>
-                        <li>Express</li>
-                    </ul>
+                <div data-aos="fade-up">
+                    <h1 className="title">2. Experience</h1>
                 </div>
-                <h2>I have worked in the following positions:</h2>
-                <div id="work-cards">
+                <div data-aos="fade-up">
+                    <h2>Here are some of the skills I possess:</h2>
+                </div>
+                <div id="experience-list" data-aos="fade-up">
+                    <div data-aos="fade-right">
+                        <ul>
+                            <h1>Languages</h1>
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>C++</li>
+                            <li>C#</li>
+                            <li>JavaScript</li>
+                            <li>HTML</li>
+                            <li>(S)CSS</li>
+                            <li>x86 Assembly</li>
+                        </ul>
+                    </div>
+                    <div data-aos="fade-left">
+                        <ul>
+                            <h1>Technologies</h1>
+                            <li>TensorFlow</li>
+                            <li>Neural Networks</li>
+                            <li>Unity</li>
+                            <li>NodeJS</li>
+                            <li>React</li>
+                            <li>Express</li>
+                        </ul>
+                    </div>
+                </div>
+                <div data-aos="fade-up">
+                    <h2>I have worked in the following positions:</h2>
+                </div>
+                <div id="work-cards" data-aos="fade-up">
                     <Work pos="Java Instructor"
                           company="My Learning Square"
                           companyLink="http://mylearningsquare.net/index.html"

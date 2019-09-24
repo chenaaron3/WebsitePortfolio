@@ -37,12 +37,13 @@
     display: flex;
     justify-content: space-around;
     text-align: left;
+    font-size: 1.5em;
 
     h1{
       text-align: center;
+      color: $highlight-text;
     }
   }
-
 }
 
 .project.active{

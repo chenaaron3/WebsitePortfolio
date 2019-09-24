@@ -2,18 +2,20 @@
   display: flex;
   justify-content: space-between;
 }
-#about-body h3 {
+#about-body .about-txt {
   width: 70%;
+}
+#about-body .about-txt h3 {
   padding: 3em 3em 3em 0;
   line-height: 1.5em;
   letter-spacing: 2px;
 }
-#about-body div {
+#about-body .about-pic {
   width: 30%;
   display: flex;
   align-items: center;
 }
-#about-body div img {
+#about-body .about-pic img {
   width: 100%;
 }
 

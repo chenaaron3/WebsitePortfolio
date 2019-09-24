@@ -20,7 +20,7 @@ class Project extends Component {
         const showVal = this.state.opened ? "less" : "more";
 
         return (
-            <div className={`project ${activeVal}`}>
+            <div className={`project ${activeVal}`} data-aos={this.state.opened ? "" : "zoom-in-up"}>
                 <h1 className="project-title">{this.props.title}</h1>
                 {
                     this.state.opened &&
