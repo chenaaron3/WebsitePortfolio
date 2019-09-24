@@ -15,7 +15,8 @@ router.post('/email', function(req, res, next) {
   };
   sgMail.send(msg).then(function() {
     res.status(200).send("Message sent!");
-  }).catch(function(){
+  }).catch(function(err){
+    console.log(err);
     res.status(400).send("Please enter a valid email!");
   })
 });
