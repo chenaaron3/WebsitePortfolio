@@ -26,11 +26,7 @@ class Contact extends Component {
             },
             body: JSON.stringify(msg) // body data type must match "Content-Type" header
         }).then(function(response) {
-            return response.text();
-        }).then(function(data) {
-            console.log(data); // this will be a string
-            alert(data);
-            if(data === "Message Sent!")
+            if(response.status === 200)
             {
                 comp.setState({
                     senderEmail: "",
@@ -38,6 +34,9 @@ class Contact extends Component {
                     message: ""
                 });
             }
+            return response.text();
+        }).then(function(data) {
+            alert(data);
         })
 
         event.preventDefault();
