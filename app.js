@@ -24,9 +24,7 @@ app.use(sassMiddleware({
   indentedSyntax: true, // true = .sass and false = .scss
   sourceMap: true
 }));
-app.use(express.static(path.join(__dirname, '../client/build')));
-
-console.log(path.join(__dirname, '../client/build'));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/', indexRouter);
 
