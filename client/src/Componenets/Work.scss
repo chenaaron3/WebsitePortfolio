@@ -1,0 +1,40 @@
+@import "../_variables.scss";
+
+.work-card{
+  position: relative;
+  padding: 3%;
+  margin: 3%;
+  width: 40%;
+  box-shadow: rgba(2, 12, 27, 0.7) 0px 10px 30px -15px;
+  background-color: $light-background;
+  transition-duration: .25s;
+
+  .work-position{
+    color: $highlight-text;
+    margin: 10px 0;
+  }
+
+  .work-company{
+    color: $primary-color;
+    margin: 10px 0;
+  }
+
+  .work-duration{
+    margin: 10px 0;
+  }
+
+  ul{
+    margin-top: 20px;
+    li{
+      margin: 20px 0;
+    }
+  }
+}
+
+.work-card:hover{
+  transform: translateY(-5%);
+}
+
+.word-card:hover.clicked{
+  color: black;
+}

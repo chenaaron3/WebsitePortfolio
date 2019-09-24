@@ -1,0 +1,75 @@
+@import "./_variables.scss";
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+  //outline: solid thin red;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  height: auto;
+  background-color: $background;
+}
+
+.app {
+}
+
+.content {
+  width: 80%;
+  height: auto;
+  margin: auto;
+  color: $normal-text;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section {
+  position: relative;
+  min-height: 90vh;
+  height: auto;
+  padding-top: 10vh;
+  margin: 0 10vh;
+
+  hr{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+footer {
+  background-color: $dark-background;
+  height: 30px;
+  width: 100%;
+  color: $normal-text;
+}
+
+.title{
+  margin-top: 25px;
+  color: $primary-color;
+}
+
+.flashy-link{
+  display: inline-block;
+  border: thin solid $primary-color;
+  background-color: transparent;
+  color: $primary-color;
+  padding: .75em 1.5em;
+  border-radius: 5px;
+  margin-left: 3%;
+  transition: .25s;
+}
+
+.flashy-link:hover{
+  background: rgba(64, 224, 208, .1);
+}

@@ -1,0 +1,23 @@
+h2, #experience-list {
+  margin: 25px 0;
+}
+
+#experience-list {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 25%;
+}
+#experience-list ul h1 {
+  color: lavender;
+}
+#experience-list ul li {
+  font-size: 1.5em;
+  margin: 10px 10px 10px 25px;
+}
+
+#work-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*# sourceMappingURL=Experience.css.map */

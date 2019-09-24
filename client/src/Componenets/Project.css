@@ -1,0 +1,45 @@
+.project {
+  height: auto;
+  width: 30%;
+  padding: 3%;
+  margin: 3%;
+  transition: 0.25s;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #172a45;
+  box-shadow: rgba(2, 12, 27, 0.7) 0px 10px 30px -15px;
+}
+.project * {
+  margin: 10px 0;
+}
+.project .project-title {
+  color: lavender;
+}
+.project .project-page {
+  width: 100%;
+}
+.project .page {
+  margin: auto;
+  height: 75vh;
+  width: 120vh;
+}
+.project .project-information {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  text-align: left;
+}
+.project .project-information h1 {
+  text-align: center;
+}
+
+.project.active {
+  width: 100%;
+  padding: 3%;
+  margin: 3%;
+}
+
+/*# sourceMappingURL=Project.css.map */

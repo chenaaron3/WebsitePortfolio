@@ -1,0 +1,36 @@
+@import "../_variables.scss";
+
+#introduction{
+}
+
+#intro-greeting, #intro-name, #intro-statement, #intro-description, #intro-contact-me{
+  margin: 25px 0;
+}
+
+#intro-greeting{
+  color: $primary-color;
+  font-size: 1em;
+}
+
+#intro-name{
+  color: $highlight-text;
+  font-size: 5em;
+}
+
+#intro-statement{
+  color: $normal-text;
+  font-size: 4em;
+}
+
+#intro-description{
+  color: $normal-text;
+  font-size: 1em;
+  line-height: 1.5em;
+  letter-spacing: 2px;
+  margin-bottom: 3em;
+}
+
+#intro-contact-me{
+  font-size: 1.5em;
+}
+

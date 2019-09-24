@@ -1,0 +1,88 @@
+@import "../_variables.scss";
+
+#contact-body{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#contact-immediate{
+  width: 40%;
+}
+
+#contact-information{
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  line-height: 2em;
+  font-size: 1.25em;
+
+  a{
+    color: $primary-color;
+  }
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input-field{
+  position: relative;
+  margin-top: 35px;
+  padding: 20px 0;
+  color: $normal-text;
+  width: 100%;
+
+  label{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    transition: .25s;
+    font-weight: normal;
+  }
+
+  input, textarea{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline;
+    outline: none;
+    border: none;
+    border-bottom: thin solid black;
+    padding-left: 10px;
+  }
+
+  input{
+    height: 100%;
+    width: 100%;
+  }
+
+  input:valid ~ label,
+  input:focus ~ label,
+  textarea:valid ~ label,
+  textarea:focus ~ label{
+    top: -25px;
+    color: $primary-color;
+  }
+}
+
+#message{
+  height: 30vh;
+  width: 100%;
+
+  textarea{
+    resize: none;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+#contact-send{
+  margin: 25px auto auto;
+  width: 100px;
+}

@@ -1,0 +1,13 @@
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  height: auto;
+}
+
+.project-section {
+  margin-top: 25px;
+}
+
+/*# sourceMappingURL=Projects.css.map */

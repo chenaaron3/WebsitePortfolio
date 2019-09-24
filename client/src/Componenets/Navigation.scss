@@ -1,0 +1,67 @@
+@import "../_variables.scss";
+
+.nav-bar{
+  background-color: $dark-background;
+  position: sticky;
+  top: 0;
+  height: 10vh;
+  padding: 15px 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 100;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.4);
+}
+
+.nav-links{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#home{
+  width: 50px;
+  height: 50px;
+  background-image: url("../logo.jpg");
+  background-size: cover;
+  margin-right: auto;
+}
+
+ol{
+  width: 40%;
+  display: inline-block;
+  font-size: 1.25em;
+
+  li{
+    color: $primary-color;
+
+    a::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: $primary-color;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out 0s;
+    }
+
+    a{
+      position: relative;
+      margin-left: 10px;
+      color: $normal-text;
+    }
+
+    a:hover{
+      color: $primary-color;
+    }
+
+    a:hover::before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+  }
+}

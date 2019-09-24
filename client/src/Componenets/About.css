@@ -1,0 +1,20 @@
+#about-body {
+  display: flex;
+  justify-content: space-between;
+}
+#about-body h3 {
+  width: 70%;
+  padding: 3em 3em 3em 0;
+  line-height: 1.5em;
+  letter-spacing: 2px;
+}
+#about-body div {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+#about-body div img {
+  width: 100%;
+}
+
+/*# sourceMappingURL=About.css.map */
