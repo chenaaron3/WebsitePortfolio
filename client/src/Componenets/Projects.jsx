@@ -81,11 +81,13 @@ class Projects extends Component {
                 </div>
                 <div className="projects" data-aos="fade-up">
                     <Project title="Flappy Bird AI"
+                             extLink="https://github.com/chenaaron3/FlappyBirdAI"
                              url="https://i.simmer.io/@apkirito/flappyai"
                              description="Train your own birds to play Flappy Bird."
                              directions={flappyDirections}
                              tools={["Neural Network", "Matrices", "Neuro-evolution", "Unity"]}/>
                     <Project title="Steering AI"
+                             extLink="https://github.com/chenaaron3/SteeringAI"
                              url="https://i.simmer.io/@apkirito/steeringai"
                              description="Train your own cars to drive around tracks."
                              directions={steeringDirections}
@@ -96,16 +98,19 @@ class Projects extends Component {
                 </div>
                 <div className="projects" data-aos="fade-up">
                     <Project title="Hashset"
+                             extLink="https://github.com/chenaaron3/Hashset"
                              url="https://i.simmer.io/@apkirito/hashset"
                              description="Vizualise how a hashset stores its data."
                              directions={hashsetDirections}
                              tools={["Hashset", "Unity"]}/>
                     <Project title="Move To Live"
+                             extLink="https://github.com/chenaaron3/MoveToLive"
                              url="https://i.simmer.io/@apkirito/movetolive"
                              description="Survive by activating weapons and avoiding enemies."
                              directions={mtlDirections}
                              tools={["Unity"]}/>
                     <Project title="Circuit"
+                             extLink="https://github.com/chenaaron3/Circuit"
                              url="https://i.simmer.io/@apkirito/circuit"
                              description="Arrange action operators to lead a robot to its destination."
                              directions={circuitDirections}
@@ -116,11 +121,13 @@ class Projects extends Component {
                 </div>
                 <div className="projects" data-aos="fade-up">
                     <Project title="Todo List"
+                             extLink="https://github.com/chenaaron3/ExpressLogin"
                              url="https://achenexpresslogin.herokuapp.com/"
                              description="Full stack todo list that organizes personalized tasks."
                              directions={todoDirections}
                              tools={["HTML", "CSS", "Javascript", "NodeJS", "Express", "Webpack"]}/>
                     <Project title="Reclaim Earth"
+                             extLink="https://github.com/chenaaron3/CitrusHacks2019"
                              url="https://reclaimearth.herokuapp.com/"
                              description="Crowdsourcing website designed to clean up trash."
                              directions={reclaimEarthDirections}
