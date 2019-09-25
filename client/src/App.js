@@ -28,7 +28,7 @@ function App() {
         </div>
         <footer>
             <hr/>
-            <small>Copyright &copy; {new Date().getFullYear()}, Aaron Chen</small>
+            <small>Created by Aaron Chen</small>
         </footer>
     </div>
   );
