@@ -15,6 +15,18 @@
 .project * {
   margin: 10px 0;
 }
+.project .project-external-link {
+  margin: 25px;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  display: inline;
+  top: 0;
+  right: 0;
+}
+.project .project-external-link:hover path {
+  fill: turquoise;
+}
 .project .project-title {
   color: lavender;
 }
