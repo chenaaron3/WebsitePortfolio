@@ -26,9 +26,9 @@ function App() {
             <Projects/>
             <Contact/>
         </div>
+        <hr/>
         <footer>
-            <hr/>
-            <small>Created by Aaron Chen</small>
+            <a href="https://github.com/chenaaron3/WebsitePortfolio" target="_blank"><h3>Created by Aaron Chen</h3></a>
         </footer>
     </div>
   );
