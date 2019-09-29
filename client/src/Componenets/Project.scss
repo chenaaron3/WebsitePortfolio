@@ -26,6 +26,11 @@
     display: inline;
     top: 0;
     right: 0;
+
+    svg{
+      height: 100%;
+      width: 100%;
+    }
   }
 
   .project-external-link:hover{

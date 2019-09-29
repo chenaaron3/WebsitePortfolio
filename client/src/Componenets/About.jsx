@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import profile from "../Profile.jpg";
+import profile from "../profile.jpg";
 import "./About.scss";
 
 class About extends Component {

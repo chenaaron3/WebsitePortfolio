@@ -49,9 +49,20 @@ body {
 
 footer {
   background-color: $dark-background;
-  height: 30px;
+  height: 50px;
   width: 100%;
-  color: $normal-text;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  a{
+    color: $normal-text;
+  }
+
+  a:hover{
+    color: $primary-color;
+  }
 }
 
 .title{
