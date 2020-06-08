@@ -1,0 +1,10 @@
+{
+    "basics": {
+        "email": "chenaaron3@gmail.com",
+        "phone": "408-455-7370"
+    },
+    "sendEmail": {
+        "error": "This is an executable file! Type './sendEmail' to send me an email!",
+        "executable": "sendEmail"
+    }
+}

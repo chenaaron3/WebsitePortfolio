@@ -7,6 +7,10 @@ var sassMiddleware = require('node-sass-middleware');
 require('dotenv').config();
 
 var indexRouter = require('./routes/index');
+var aboutRouter = require('./routes/about');
+var experienceRouter = require('./routes/experience');
+var projectsRouter = require('./routes/projects');
+var contactRouter = require('./routes/contact');
 
 var app = express();
 
@@ -25,8 +29,17 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static("public"));
 
-app.use('/', indexRouter);
+app.use('/', indexRouter)
+app.use('/about', aboutRouter);
+app.use('/experience', experienceRouter);
+app.use('/projects', projectsRouter);
+app.use('/contact', contactRouter);
+
+app.get('*', function(req, res) {
+  res.sendFile('index.html', {root: path.join(__dirname, 'client/build/')});
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

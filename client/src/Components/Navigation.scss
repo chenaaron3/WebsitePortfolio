@@ -1,0 +1,110 @@
+@import "../_variables.scss";
+
+.nav-bar{
+  background-color: $dark-background;
+  position: sticky;
+  top: 0;
+  height: 10vh;
+  padding: 15px 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 100;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.4);
+}
+
+.nav-links{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav-resume {
+  margin-left: 5vw;
+  margin-right: 1vw;
+  position: relative;
+  display: inline-block;
+}
+
+.nav-resume-header {
+  padding: 10px;
+  font-size: 1.25em;
+  color: $normal-text;
+}
+
+.nav-resume-header:hover {
+  color: $primary-color;
+}
+
+.nav-resume-content {
+  width: 100%;
+  margin-top: 10px;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  background-color: $light-background;
+  transition: all .5s ease;
+
+  a {
+    display: block;
+    color: $normal-text;
+    padding: 12px;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $primary-color;
+  }
+}
+
+.nav-resume:hover .nav-resume-content {
+  opacity: 1;
+}
+
+#home{
+  width: 50px;
+  height: 50px;
+  background-image: url("../logo.jpg");
+  background-size: cover;
+  margin-right: auto;
+}
+
+ol{
+  width: 40%;
+  display: inline-block;
+  font-size: 1.25em;
+
+  li{
+    color: $primary-color;
+
+    a::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: $primary-color;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out 0s;
+    }
+
+    a{
+      position: relative;
+      margin-left: 10px;
+      color: $normal-text;
+    }
+
+    a:hover{
+      color: $primary-color;
+    }
+
+    a:hover::before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+  }
+}

@@ -1,37 +1,40 @@
 import React from 'react';
+// css
+import "./PageTransitions/slideTransition.scss";
 import "./App.scss";
 import AOS from "aos";
 import 'aos/dist/aos.css';
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import {
+  withRouter,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 
-// components
-import Sidebar from "./Componenets/Sidebar";
-import Navigation from "./Componenets/Navigation";
-import Introduction from "./Componenets/Introduction";
-import About from "./Componenets/About";
-import Experience from "./Componenets/Experience";
-import Projects from "./Componenets/Projects";
-import Contact from "./Componenets/Contact";
+// pages
+import StaticApp from "./Pages/Static";
+import LandingApp from "./Pages/Landing";
+import InteractiveApp from './Pages/Interactive';
 
-AOS.init();
+AOS.init({
+  once: true
+});
 
-function App() {
-  return (
-    <div className="app">
-        <Sidebar/>
-        <Navigation/>
-        <div className="content">
-            <Introduction/>
-            <About/>
-            <Experience/>
-            <Projects/>
-            <Contact/>
-        </div>
-        <hr/>
-        <footer>
-            <a href="https://github.com/chenaaron3/WebsitePortfolio" target="_blank"><h3>Created by Aaron Chen</h3></a>
-        </footer>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Redirect to="/static" />
+          </Route>
+          <Route exact path="/static" component={StaticApp} />
+          <Route exact path="/interactive" component={InteractiveApp} />
+        </Switch>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withRouter(App);

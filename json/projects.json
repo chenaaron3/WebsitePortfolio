@@ -1,0 +1,74 @@
+{
+    "webDev": {
+        "peterPortal": {
+            "title": "Peter Portal",
+            "description": "Worked on the backend for a web application aimed to help UCI students with course discovery.",
+            "tags": [
+                "Python",
+                "Web Scraping",
+                "Express",
+                "React"
+            ],
+            "extLink": "https://peter-portal.com",
+            "github": "https://github.com/icssc-projects/PeterPortal",
+            "pictures": ["/peterportal.jpg"]
+        },
+        "portfolio": {
+            "title": "Terminal Site",
+            "description": "Created a terminal version of my portfolio that displays information using Unix commands.",
+            "tags": [
+                "Shell",
+                "Express",
+                "React"
+            ],
+            "extLink": "/interactive",
+            "github": "https://github.com/chenaaron3/WebsitePortfolio",
+            "pictures": ["/terminal.jpg"]
+        },
+        "allergize": {
+            "title": "Allergize",
+            "description": "Developed a mobile app to check if a picture contains food allergies. Award-winning project for HackUCI 2020.",
+            "tags": [
+                "Image Detection",
+                "Express",
+                "React Native"
+            ],
+            "extLink": "https://devpost.com/software/allergize",
+            "github": "https://github.com/ramanxg/Allergize",
+            "pictures": ["/allergize1.jpg", "/allergize2.jpg", "/allergize3.jpg"]
+        }
+    },
+    "systems": {
+        "pintos": {
+            "title": "Pintos",
+            "description": "Implemented features such as Thread Synchronization and Priority Scheduling in a simple Operating System.",
+            "tags": [
+                "C",
+                "Locks",
+                "Semaphores",
+                "Concurrency"
+            ],
+            "extLink": "https://web.stanford.edu/class/cs140/projects/pintos/pintos_2.html"
+        },
+        "allocator": {
+            "title": "Memory Allocator",
+            "description": "Created an explicit free list allocator in C with first-fit placement. Implemented low-level functions like malloc, free, and realloc.",
+            "tags": [
+                "C",
+                "Memory",
+                "Alignment",
+                "Coalescing"
+            ]
+        },
+        "shell": {
+            "title": "Simple Shell",
+            "description": "Developed a simple shell in C that supports Unix commands, piping, and redirection.",
+            "tags": [
+                "C",
+                "Shell",
+                "Signals",
+                "Concurrency"
+            ]
+        }
+    }
+}
