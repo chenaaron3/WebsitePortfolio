@@ -24,4 +24,4 @@ function deploy(res){
       });
 }
 
-export default router;
+module.exports = router;
