@@ -11,6 +11,7 @@ router.post("/github", function (req, res) {
     var sender = req.body.sender;
     var branch = req.body.ref;
 
+    console.log(sender, branch);
     if(branch.indexOf('master') > -1 && sender.login === githubUsername){
         deploy(res);
     }
