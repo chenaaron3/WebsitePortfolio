@@ -28,6 +28,7 @@ function deploy(res) {
         console.log('child process exited with ' + `code ${code} and signal ${signal}`);
         res.send(200);
     });
+    
     // childProcess.exec(command, function (err, stdout, stderr) {
     //     if (err) {
     //         console.log("Something went wrong during deployment!")
