@@ -11,7 +11,6 @@ router.post("/github", function (req, res) {
     var sender = req.body.sender;
     var branch = req.body.ref;
 
-    console.log("Sender:", sender, "Branch:", branch);
     if (branch.indexOf('master') > -1 && sender.login === githubUsername) {
         console.log("Push Detected! Now Deploying!");
         deploy(res);
@@ -20,7 +19,7 @@ router.post("/github", function (req, res) {
 
 function deploy(res) {
     let command = `cd ${scriptDirectory} && ./${scriptFile}`;
-    const child = spawn(command, {
+    const child = childProcess.spawn(command, {
         stdio: 'inherit',
         shell: true
     });
