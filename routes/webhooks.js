@@ -28,16 +28,6 @@ function deploy(res) {
         console.log('child process exited with ' + `code ${code} and signal ${signal}`);
         res.send(200);
     });
-    
-    // childProcess.exec(command, function (err, stdout, stderr) {
-    //     if (err) {
-    //         console.log("Something went wrong during deployment!")
-    //         console.error(err);
-    //         return res.send(500);
-    //     }
-    //     console.log("Successfully Deployed!")
-    //     res.send(200);
-    // });
 }
 
 module.exports = router;
