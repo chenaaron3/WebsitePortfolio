@@ -11,7 +11,7 @@ var aboutRouter = require('./routes/about');
 var experienceRouter = require('./routes/experience');
 var projectsRouter = require('./routes/projects');
 var contactRouter = require('./routes/contact');
-var webhookRouter = require('./routes/webhook');
+var webhooksRouter = require('./routes/webhooks');
 
 var app = express();
 
@@ -37,7 +37,7 @@ app.use('/about', aboutRouter);
 app.use('/experience', experienceRouter);
 app.use('/projects', projectsRouter);
 app.use('/contact', contactRouter);
-app.use('/webhook', webhookRouter);
+app.use('/webhook', webhooksRouter);
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', {root: path.join(__dirname, 'client/build/')});
