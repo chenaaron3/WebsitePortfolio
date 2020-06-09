@@ -37,7 +37,7 @@ app.use('/about', aboutRouter);
 app.use('/experience', experienceRouter);
 app.use('/projects', projectsRouter);
 app.use('/contact', contactRouter);
-app.use('/webhook', webhooksRouter);
+app.use('/webhooks', webhooksRouter);
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', {root: path.join(__dirname, 'client/build/')});
