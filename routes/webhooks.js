@@ -12,12 +12,17 @@ router.post("/github", function (req, res) {
     var branch = req.body.ref;
 
     if (branch.indexOf('master') > -1 && sender.login === githubUsername) {
-        console.log("Push Detected! Now Deploying!");
-        deploy(res);
+        res.send(200);
+        console.log(`Push Detected from ${sender.login}! Now Deploying!`);
+        deploy();
+    }
+    else {
+        res.send(403);
+        console.log(`Only ${githubUsername} can auto-deploy. You are ${sender.login}.`)
     }
 })
 
-function deploy(res) {
+function deploy() {
     let command = `cd ${scriptDirectory} && ./${scriptFile}`;
     let child = childProcess.spawn(command, {
         stdio: 'inherit',
@@ -26,7 +31,6 @@ function deploy(res) {
 
     child.on('exit', function (code, signal) {
         console.log('child process exited with ' + `code ${code} and signal ${signal}`);
-        res.send(200);
     });
 }
 
