@@ -1,0 +1,31 @@
+{
+    "Resumes": {
+        "systems": "/resumes/systems",
+        "webDev": "resumes/webDev"
+    },
+    "About": {
+        "basics": "/about/basics",
+        "goal": "/about/goal"
+    },
+    "Experience": {
+        "techStack": "/experience/techStack",
+        "greenApple": "/experience/greenApple",
+        "learningSquare": "/experience/learningSquare"
+    },
+    "Projects": {
+        "WebDev": {
+            "peterPortal": "/projects/webDev/peterPortal",
+            "portfolio": "/projects/webDev/portfolio",
+            "allergize": "/projects/webDev/allergize"
+        },
+        "Systems": {
+            "allocator": "/projects/systems/allocator",
+            "shell": "/projects/systems/shell",
+            "pintos": "/projects/systems/pintos"
+        }
+    },
+    "Contact": {
+        "basics": "/contact/basics",
+        "sendEmail": "/contact/sendEmail"
+    }
+}

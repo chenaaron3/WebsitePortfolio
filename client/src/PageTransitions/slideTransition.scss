@@ -1,0 +1,30 @@
+.pageSlider-exit > .page {
+    z-index: 1;
+    opacity: 1;
+    transform: scale(1);
+    overflow: hidden;
+}
+
+.pageSlider-exit-active > .page {
+    opacity: 0.01;
+    transform: scale(1);
+    transition: all 300ms;
+}
+
+.pageSlider-enter > .page {
+    z-index: 10;
+    opacity: 0.01;
+    transform: scale(.9);
+    overflow: hidden;
+}
+
+.pageSlider-enter-active > .page {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 300ms;
+}
+
+// .pageSlider-enter.pageSlider-enter-active > .page {
+//     transform: translate3d(0, 0, 0);
+//     transition: all 800ms ease-in-out;
+// }
