@@ -19,7 +19,7 @@ router.post("/github", function (req, res) {
 
 function deploy(res) {
     let command = `cd ${scriptDirectory} && ./${scriptFile}`;
-    const child = childProcess.spawn(command, {
+    let child = childProcess.spawn(command, {
         stdio: 'inherit',
         shell: true
     });
@@ -27,7 +27,6 @@ function deploy(res) {
     child.on('exit', function (code, signal) {
         console.log('child process exited with ' + `code ${code} and signal ${signal}`);
         res.send(200);
-
     });
 
     // childProcess.exec(command, function (err, stdout, stderr) {
