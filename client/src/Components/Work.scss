@@ -1,13 +1,23 @@
 @import "../_variables.scss";
 
+.work-card-wrapper{
+  width: 40%;
+  margin: 3%;
+}
+
+.work-card:hover{
+  box-shadow: 0 0 10px $primary-color;
+}
+
 .work-card{
   position: relative;
-  padding: 3%;
-  margin: 3%;
-  width: 40%;
+  padding: 7%;
+  width: 100%;
   box-shadow: rgba(2, 12, 27, 0.7) 0px 10px 30px -15px;
   background-color: $light-background;
+  transition: box-shadow 0.3s ease-in-out;
   transition-duration: .25s;
+  border-radius: 15px;
 
   .work-position{
     color: $highlight-text;
@@ -29,8 +39,4 @@
       margin: 20px 0;
     }
   }
-}
-
-.work-card:hover{
-  transform: translateY(-5%);
 }

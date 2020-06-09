@@ -26,6 +26,7 @@
 .terminal-input-area{
     display: inline-flex;
     width: 100%;
+    line-height: 22px;
 }
 
 .terminal-prompt{
@@ -45,6 +46,7 @@
     color: rgb(240, 191, 129);
     font-family: monospace;
     outline: none;
+    letter-spacing: 1px;
 }
 
 .terminal-ls{
