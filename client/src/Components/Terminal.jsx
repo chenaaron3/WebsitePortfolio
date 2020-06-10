@@ -170,11 +170,20 @@ class Terminal extends React.Component {
         let directories = path.split("/");
         let newDirectory = this.state.currentDirectory.split("/");
         let newDirectoryRef = this.state.currentDirectoryRef;
+        // check if first directory is home
+        if (path.length > 0) {
+            // synonymous for home directory
+            if (path.charAt(0) == "/" || path.charAt(0) == "~") {
+                newDirectoryRef = this.root;
+                newDirectory = ["~"];
+                directories.shift();
+            }
+        }
         // process each directory
         while (directories.length > 0) {
             let directory = directories[0]
             if (directory == "." || directory == "") {
-                // do nothing
+                // stay in current directory
             }
             // move up directory
             else if (directory == "..") {
@@ -205,7 +214,7 @@ class Terminal extends React.Component {
 
     // links parents starting from the root node
     initFileSystem = () => {
-        let root = this.fileSystem;
+        let root = this.root;
         this.linkParent(root, root)
     }
 
@@ -235,7 +244,7 @@ class Terminal extends React.Component {
         this.directoryRefStack = [];
         this.terminalRoot = React.createRef();
         this.terminalInput = React.createRef();
-        this.fileSystem = fileSystem;
+        this.root = fileSystem;
         this.initFileSystem();
         this.executableFunction = undefined;
         this.state = {
@@ -243,7 +252,7 @@ class Terminal extends React.Component {
             inputValue: "",
             inputAvailable: true,
             currentDirectory: "~",
-            currentDirectoryRef: this.fileSystem,
+            currentDirectoryRef: this.root,
             commands: {
                 ...this.props.commands,
                 help: {
@@ -349,19 +358,32 @@ class Terminal extends React.Component {
         }
         // get the last word to complete
         let lastWord = words.pop();
-        console.log("LW:", lastWord);
-        let possibleMatches = [];
-        var re = new RegExp(`^${lastWord.toLowerCase()}.*$`,"g");
-        // find files in current directory that match
-        Object.keys(this.state.currentDirectoryRef).forEach(file => {
-            if (file.toLowerCase().match(re)) {
-                possibleMatches.push(file)
-            }
-        })
-        // if found 1 match
-        if (possibleMatches.length == 1) {
-            words.push(possibleMatches[0]);
-            this.setState({ inputValue: words.join(" ")})
+        // last word may be a path
+        let directory = lastWord.split("/");
+        // want to complete the file
+        let file = directory.pop();
+        if (file.length == 0) {
+            return;
+        }
+        let success, newDir, newDirRef, err;
+        // resolve the path
+        [success, newDir, newDirRef, err] = this.getDirectory(directory.join("/"));
+        // if path is valid
+        if (success) {
+            let possibleMatches = [];
+            var re = new RegExp(`^${file.toLowerCase()}.*$`,"g");
+            // find files in directory that match
+            Object.keys(newDirRef).forEach(f => {
+                if (f.toLowerCase().match(re)) {
+                    possibleMatches.push(f)
+                }
+            })
+            // if found 1 match
+            if (possibleMatches.length == 1) {
+                directory.push(possibleMatches[0])
+                words.push(directory.join("/"));
+                this.setState({ inputValue: words.join(" ")})
+            }        
         }
     }
 
