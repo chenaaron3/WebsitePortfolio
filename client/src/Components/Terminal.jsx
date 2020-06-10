@@ -36,11 +36,11 @@ class Terminal extends React.Component {
         if (!dir) {
             return "Please provide a directory!";
         }
-        let success, newDir, newDirRef;
+        let success, newDir, newDirRef, err;
         // resolve the path
-        [success, newDir, newDirRef] = this.getDirectory(dir);
+        [success, newDir, newDirRef, err] = this.getDirectory(dir);
         if (!success) {
-            return newDir;
+            return err;
         }
         else {
             this.setState({ currentDirectory: newDir, currentDirectoryRef: newDirRef });
@@ -53,11 +53,11 @@ class Terminal extends React.Component {
         let dirRef = this.state.currentDirectoryRef;
         // given a path as arg
         if (args[0]) {
-            let success, newDir, newDirRef;
+            let success, newDir, newDirRef, err;
             // resolve the path
-            [success, newDir, newDirRef] = this.getDirectory(args[0]);
+            [success, newDir, newDirRef, err] = this.getDirectory(args[0]);
             if (!success) {
-                return newDir;
+                return err;
             }
             else {
                 dirRef = newDirRef;
@@ -87,11 +87,11 @@ class Terminal extends React.Component {
         }
         let directory = args[0].split("/");
         let file = directory.pop();
-        let success, newDir, newDirRef;
+        let success, newDir, newDirRef, err;
         // resolve the path
-        [success, newDir, newDirRef] = this.getDirectory(directory.join("/"));
+        [success, newDir, newDirRef, err] = this.getDirectory(directory.join("/"));
         if (!success) {
-            return newDir;
+            return err;
         }
         // file exists
         if (newDirRef.hasOwnProperty(file)) {
@@ -170,11 +170,20 @@ class Terminal extends React.Component {
         let directories = path.split("/");
         let newDirectory = this.state.currentDirectory.split("/");
         let newDirectoryRef = this.state.currentDirectoryRef;
+        // check if first directory is home
+        if (path.length > 0) {
+            // synonymous for home directory
+            if (path.charAt(0) == "/" || path.charAt(0) == "~") {
+                newDirectoryRef = this.root;
+                newDirectory = ["~"];
+                directories.shift();
+            }
+        }
         // process each directory
         while (directories.length > 0) {
             let directory = directories[0]
             if (directory == "." || directory == "") {
-                // do nothing
+                // stay in current directory
             }
             // move up directory
             else if (directory == "..") {
@@ -191,21 +200,21 @@ class Terminal extends React.Component {
                     newDirectory.push(directory)
                 }
                 else {
-                    return [false, `${directory} is a file not a directory!`, undefined];
+                    return [false, undefined, undefined, `${directory} is a file not a directory!`];
                 }
             }
             else {
-                return [false, `${directory} does not exist!`, undefined];
+                return [false, undefined, undefined, `${directory} does not exist!`];
             }
             // move to next directory
             directories.shift();
         }
-        return [true, newDirectory.join("/"), newDirectoryRef]
+        return [true, newDirectory.join("/"), newDirectoryRef, undefined];
     }
 
     // links parents starting from the root node
     initFileSystem = () => {
-        let root = this.fileSystem;
+        let root = this.root;
         this.linkParent(root, root)
     }
 
@@ -235,7 +244,7 @@ class Terminal extends React.Component {
         this.directoryRefStack = [];
         this.terminalRoot = React.createRef();
         this.terminalInput = React.createRef();
-        this.fileSystem = fileSystem;
+        this.root = fileSystem;
         this.initFileSystem();
         this.executableFunction = undefined;
         this.state = {
@@ -243,7 +252,7 @@ class Terminal extends React.Component {
             inputValue: "",
             inputAvailable: true,
             currentDirectory: "~",
-            currentDirectoryRef: this.fileSystem,
+            currentDirectoryRef: this.root,
             commands: {
                 ...this.props.commands,
                 help: {
@@ -308,7 +317,9 @@ class Terminal extends React.Component {
         // execute command
         if (e.key === 'Enter') {
             if (this.executableFunction) {
+                // echo without prompt
                 this.pushText(<span className="terminal-input">{this.state.inputValue}</span>);
+                // execute with input
                 this.executableFunction(this.state.inputValue);
                 this.flush();
             }
@@ -316,13 +327,19 @@ class Terminal extends React.Component {
                 this.processCommand(this.state.inputValue);
             }
         }
+        else if (e.key === 'Tab') {
+            e.preventDefault();
+            this.tabComplete();
+        }
         // go up history
         else if (e.key === 'ArrowUp') {
+            e.preventDefault();
             this.historyIndex = Math.max(0, this.historyIndex - 1);
             this.setState({ inputValue: this.history[this.historyIndex] });
         }
         // go down history
         else if (e.key === 'ArrowDown') {
+            e.preventDefault();
             this.historyIndex = Math.min(this.history.length - 1, this.historyIndex + 1);
             this.setState({ inputValue: this.history[this.historyIndex] });
         }
@@ -331,6 +348,43 @@ class Terminal extends React.Component {
     // updates the input value
     handleChange = (e) => {
         this.setState({ inputValue: e.target.value })
+    }
+
+    // tab complete
+    tabComplete = () => {
+        let words = this.state.inputValue.split(" ");
+        if (words.length == 0) {
+            return;
+        }
+        // get the last word to complete
+        let lastWord = words.pop();
+        // last word may be a path
+        let directory = lastWord.split("/");
+        // want to complete the file
+        let file = directory.pop();
+        if (file.length == 0) {
+            return;
+        }
+        let success, newDir, newDirRef, err;
+        // resolve the path
+        [success, newDir, newDirRef, err] = this.getDirectory(directory.join("/"));
+        // if path is valid
+        if (success) {
+            let possibleMatches = [];
+            var re = new RegExp(`^${file.toLowerCase()}.*$`,"g");
+            // find files in directory that match
+            Object.keys(newDirRef).forEach(f => {
+                if (f.toLowerCase().match(re)) {
+                    possibleMatches.push(f)
+                }
+            })
+            // if found 1 match
+            if (possibleMatches.length == 1) {
+                directory.push(possibleMatches[0])
+                words.push(directory.join("/"));
+                this.setState({ inputValue: words.join(" ")})
+            }        
+        }
     }
 
     // process command based on raw input string
@@ -380,11 +434,11 @@ class Terminal extends React.Component {
     processExecutable = (path) => {
         path = path.split("/");
         let file = path.pop();
-        let success, newDir, newDirRef;
+        let success, newDir, newDirRef, err;
         // resolve the path
-        [success, newDir, newDirRef] = this.getDirectory(path.join("/"));
+        [success, newDir, newDirRef, err] = this.getDirectory(path.join("/"));
         if (!success) {
-            this.pushText(newDir);
+            this.pushText(err);
         }
         else {
             // if file exists
