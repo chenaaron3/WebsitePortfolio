@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Terminal.css"
 import fileSystem from "./data/terminalFileSystem.json"
-
+ 
 class Terminal extends React.Component {
     static defaultProps = {
         welcomeMessage: <>Type '<span className="terminal-command">help</span>' to get a list of commands.</>,
