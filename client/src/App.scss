@@ -89,6 +89,12 @@ footer {
 }
 
 @media screen and (max-width: 480px) {
+  html, body {
+    overflow-x: hidden;
+  }
+  body {
+    position: relative
+  }
   .content {
     width: 100%;
   }
