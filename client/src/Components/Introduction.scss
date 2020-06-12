@@ -1,8 +1,5 @@
 @import "../_variables.scss";
 
-#introduction{
-}
-
 #intro-greeting, #intro-name, #intro-statement, #intro-description, #intro-contact-me{
   margin: 25px 0;
 }
@@ -23,6 +20,7 @@
 }
 
 #intro-description{
+  width: 60vw;
   color: $normal-text;
   font-size: 1em;
   line-height: 1.5em;
@@ -34,3 +32,36 @@
   font-size: 1.5em;
 }
 
+@media screen and (max-width: 480px) {
+  #intro-greeting, #intro-name, #intro-statement, #intro-description, #intro-contact-me{
+    margin: 7px 0;
+  }
+
+  #intro-greeting{
+    font-size: .85em;
+  }
+
+  #intro-name{
+    font-size: 3em;
+  }
+
+  #intro-statement{
+    font-size: 2em;
+  }
+
+  #intro-description{
+    width: 100%;
+    margin: 6vh 0;
+    font-size: .9em;
+  }
+
+  #intro-contact{
+    display: flex;
+    width: 100%;
+  }
+
+  #intro-contact-me{
+    font-size: 1.5em;
+    margin: auto;
+  }
+}

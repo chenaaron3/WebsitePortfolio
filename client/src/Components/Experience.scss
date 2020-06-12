@@ -1,19 +1,19 @@
 @import "../_variables.scss";
 
-h2, #experience-list{
+h2, #experience-lists{
   margin: 25px 0;
 }
 
-#experience-list{
+#experience-lists{
   display: flex;
   justify-content: space-between;
   margin-right: 25%;
 
-  ul{
-    h1{
-      color: $highlight-text;
-    }
+  h1{
+    color: $highlight-text;
+  }
 
+  ul{
     li{
       font-size: 1.5em;
       margin: 10px 10px 10px 25px;
@@ -24,4 +24,37 @@ h2, #experience-list{
 #work-cards{
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 5vh;
+}
+
+@media screen and (max-width: 480px) {
+  h2 {
+    font-size: 1.25em;
+  }
+  #experience-lists {
+    width: 100%;
+    flex-direction: column;
+
+    .experience-list {
+      margin-bottom: 3vh;
+    }
+
+    ul{
+      margin-left: 10vw;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: 15vh;
+
+      li{
+        margin: 0px;
+        font-size: 1.25em;
+      }
+    }
+  }
+
+  #work-cards{
+    flex-direction: column;
+  }
 }

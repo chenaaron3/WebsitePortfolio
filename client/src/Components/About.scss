@@ -25,3 +25,23 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  #about-body{
+    flex-direction: column;
+
+    .about-txt{
+      width: 100%;
+      
+      h3 {
+        font-size: 1em;
+        padding: 1em 0 0 0;
+      }
+    }
+
+    .about-pic{
+      width: 100%;
+      height: 400px;
+    }
+  }
+}

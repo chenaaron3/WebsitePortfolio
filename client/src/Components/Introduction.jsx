@@ -32,11 +32,10 @@ class Introduction extends Component {
                 </div>
                 <div data-aos="fade-down" data-aos-delay="400">
                     <h1 id='intro-description'>
-                        I am a {this.state.standing} {this.state.major} student at {this.state.school}<br/>
-                        and my interests are System Design and Web Development.<br/>
+                        I am a {this.state.standing} {this.state.major} student at {this.state.school} and my interests are System Design and Web Development.<br/>
                     </h1>
                 </div>
-                <div data-aos="fade-down" data-aos-delay="400">
+                <div id="intro-contact" data-aos="fade-down" data-aos-delay="400">
                     <a href="#contact" className="flashy-link" id="intro-contact-me">Contact Me</a>
                 </div>
                 <hr/>

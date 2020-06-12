@@ -5,17 +5,21 @@ import Iframe from 'react-iframe';
 class Project extends Component {
 
     render() {
+        let mobile = window.matchMedia("(max-width: 480px)").matches;
         let connectorComponent = <hr className="project-connector" type="connection" />;
         let pictureComponent = this.props.pictures ? (<>
-            {this.props.picpos === "right" && connectorComponent}
-            {this.props.pictures.map((url, index) => (<a className="project-image" href={this.props.extLink} target="_blank" rel="noopener noreferrer">
-                <img data-aos="zoom-in-up" src={url} key={index} height="300"></img>
-            </a>))}
-            {this.props.picpos === "left" && connectorComponent}
+            {this.props.picpos === "right" && !mobile && connectorComponent}
+            {this.props.pictures.map((url, index) => {
+                if (mobile && index > 0) return <></>;
+                return (<a className="project-image" href={this.props.extLink} target="_blank" rel="noopener noreferrer">
+                    <img data-aos="zoom-in-up" src={url} key={index} height="300"></img>
+                </a>)
+            })}
+            {this.props.picpos === "left" && !mobile && connectorComponent}
         </>) : <></>;
         return (
             <div className={this.props.pictures ? "project-block" : "project-card"}>
-                {this.props.pictures && this.props.picpos == "left" && pictureComponent}
+                {this.props.pictures && this.props.picpos == "left" && !mobile && pictureComponent}
                 <div data-aos="zoom-in-up">
                     <div className={`project ${this.props.pictures ? "block" : "card"}`}>
                         <div className="project-header">
@@ -43,7 +47,7 @@ class Project extends Component {
                         </div>
                     </div>
                 </div>
-                {this.props.pictures && this.props.picpos == "right" && pictureComponent}
+                {this.props.pictures && (this.props.picpos == "right" || mobile) && pictureComponent}
             </div>
         );
     }

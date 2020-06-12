@@ -36,10 +36,10 @@ class Experience extends Component {
                 <div data-aos="fade-up">
                     <h2>Here are some of the skills I possess:</h2>
                 </div>
-                <div id="experience-list" data-aos="fade-up">
-                    <div data-aos="fade-right">
+                <div id="experience-lists" data-aos="fade-up">
+                    <div className="experience-list" data-aos="fade-right">
+                        <h1>Languages</h1>
                         <ul>
-                            <h1>Languages</h1>
                             {
                                 this.state.languages.map((value, index) =>
                                     <li key={index}>{value}</li>
@@ -47,9 +47,9 @@ class Experience extends Component {
                             }
                         </ul>
                     </div>
-                    <div data-aos="fade-left">
+                    <div className="experience-list" data-aos="fade-left">
+                        <h1>Technologies</h1>
                         <ul>
-                            <h1>Technologies</h1>
                             {
                                 this.state.technologies.map((value, index) =>
                                     <li key={index}>{value}</li>

@@ -91,3 +91,19 @@ form {
   margin: 25px auto auto;
   width: 100px;
 }
+
+@media screen and (max-width: 480px) {
+  #contact-body{
+    flex-direction: column;
+  }
+
+  #contact-immediate{
+    width: 100%;
+  }
+
+  #contact-information{
+    width: 100%;
+    font-size: 1em;
+    margin: 3vh 0;
+  }
+}

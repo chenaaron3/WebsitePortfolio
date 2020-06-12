@@ -87,3 +87,12 @@ footer {
 .flashy-link:hover{
   background: rgba(64, 224, 208, .1);
 }
+
+@media screen and (max-width: 480px) {
+  .content {
+    width: 100%;
+  }
+  .section {
+    margin: 0 5vh;
+  }
+}

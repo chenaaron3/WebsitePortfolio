@@ -12,12 +12,12 @@ router.post("/github", function (req, res) {
     var branch = req.body.ref;
 
     if (branch.indexOf('master') > -1 && sender.login === githubUsername) {
-        res.send(200);
+        res.sendStatus(200);
         console.log(`Push Detected from ${sender.login}! Now Deploying!`);
         deploy();
     }
     else {
-        res.send(403);
+        res.sendStatus(403);
         console.log(`Only ${githubUsername} can auto-deploy. You are ${sender.login}.`)
     }
 })

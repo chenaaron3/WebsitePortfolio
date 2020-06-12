@@ -12,7 +12,6 @@ import Contact from "../Components/Contact";
 function StaticApp() {
   return (
     <div>
-        <Sidebar/>
         <Navigation/>
         <div className="content">
             <Introduction/>
@@ -22,6 +21,7 @@ function StaticApp() {
             <Contact/>
         </div>
         <hr/>
+        <Sidebar/>
         <footer>
             <a href="https://github.com/chenaaron3/WebsitePortfolio" target="_blank"><h3>Created by Aaron Chen</h3></a>
         </footer>

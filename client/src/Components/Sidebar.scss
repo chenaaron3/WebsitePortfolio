@@ -31,3 +31,13 @@
     fill: $primary-color;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .sidebar{
+    position: static;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 0;
+    padding: 0
+  }
+}

@@ -11,3 +11,9 @@
 .project-section{
   margin-top: 25px;
 }
+
+@media screen and (max-width: 480px) {
+  .projects{
+    flex-direction: column;
+  }
+}

@@ -1,13 +1,14 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./Navigation.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown, faBars } from "@fortawesome/free-solid-svg-icons";
 
 class Navigation extends Component {
     render() {
         return (
             <div className="nav-bar" data-aos="fade-down">
-                <a href="#introduction" id="home"/>
+                <a href="#introduction" id="home" />
+                <FontAwesomeIcon className="nav-burger" icon={faBars} size="lg"/>
                 <ol className="nav-links">
                     <li>
                         <div data-aos="fade-down" data-aos-delay="50">
@@ -31,10 +32,10 @@ class Navigation extends Component {
                     </li>
                 </ol>
                 <div className="nav-resume">
-                    <span className="nav-resume-header">Resumes <FontAwesomeIcon icon={faCaretDown}/></span>
+                    <span className="nav-resume-header">Resumes <FontAwesomeIcon icon={faCaretDown} /></span>
                     <div className="nav-resume-content">
                         <a href="/systems.pdf" target="_blank" rel="noopener noreferrer">Systems</a>
-                        <hr/>
+                        <hr />
                         <a href="/webDev.pdf" target="_blank" rel="noopener noreferrer">Web Dev</a>
                     </div>
                 </div>

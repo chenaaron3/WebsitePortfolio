@@ -40,7 +40,8 @@ class Projects extends Component {
                             <Project title={value.title}
                                 description={value.description}
                                 tags={value.tags}
-                                extLink={value.extLink} />
+                                extLink={value.extLink}
+                                key={`systems-${index}`} />
                         )
                     }
                 </div>
@@ -56,7 +57,8 @@ class Projects extends Component {
                                 extLink={value.extLink} 
                                 github={value.github}
                                 pictures={value.pictures}
-                                picpos={index % 2 ? "left" : "right"}/>
+                                picpos={index % 2 ? "left" : "right"}
+                                key={`webDev-${index}`} />
                         )
                     }
                 </div>
