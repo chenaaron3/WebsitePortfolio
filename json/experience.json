@@ -19,6 +19,17 @@
             "Elasticsearch"
         ]
     },
+    "l3harris": {
+        "position": "Software Engineer Intern",
+        "company": "L3Harris Technologies",
+        "companyLink": "https://www.l3harris.com/",
+        "dates": "June 2020 - Present",
+        "responsibilities": [
+            "Worked on a GPS Receiver tool in C# under the Navigation System department.",
+            "Investigated and fixed bugs under a large code base.",
+            "Participated in weekly meetings with a team of 4 to discuss progress and roadblocks."
+        ]
+    },
     "learningSquare": {
         "position": "Java Instructor",
         "company": "My Learning Square",

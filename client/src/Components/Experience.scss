@@ -25,6 +25,7 @@ h2, #experience-lists{
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 5vh;
+  justify-content: center;
 }
 
 @media screen and (max-width: 480px) {
