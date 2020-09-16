@@ -16,7 +16,8 @@
         "WebDev": {
             "peterPortal": "/projects/webDev/peterPortal",
             "portfolio": "/projects/webDev/portfolio",
-            "allergize": "/projects/webDev/allergize"
+            "allergize": "/projects/webDev/allergize",
+            "stocks": "/projects/webDev/stocks"
         },
         "Systems": {
             "allocator": "/projects/systems/allocator",

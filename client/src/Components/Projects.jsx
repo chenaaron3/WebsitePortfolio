@@ -9,7 +9,7 @@ class Projects extends Component {
             webDev: [],
             systems: []
         }
-        let endpoints = ["/projects/webDev/peterPortal", "/projects/webDev/portfolio", "/projects/webDev/allergize",
+        let endpoints = ["/projects/webDev/peterPortal", "/projects/webDev/portfolio", "/projects/webDev/allergize", "/projects/webDev/stocks",
             "/projects/systems/allocator", "/projects/systems/shell", "/projects/systems/pintos"];
         endpoints.forEach(endpoint => {
             fetch(endpoint)

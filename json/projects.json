@@ -36,6 +36,19 @@
             "extLink": "https://devpost.com/software/allergize",
             "github": "https://github.com/ramanxg/Allergize",
             "pictures": ["/allergize1.jpg", "/allergize2.jpg", "/allergize3.jpg"]
+        },
+        "stocks": {
+            "title": "Backtesting Stocks",
+            "description": "Built a website that gauges the effectiveness of a trading strategy by testing it against decades worth of historical data.",
+            "tags": [
+                "Redux",
+                "Recharts",                
+                "Express",
+                "React"
+            ],
+            "extLink": "/stocks",
+            "github": "https://github.com/chenaaron3/Stonks",
+            "pictures": ["/stocks.jpg"]
         }
     },
     "systems": {
