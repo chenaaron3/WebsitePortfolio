@@ -9,7 +9,7 @@
                 "Express",
                 "React"
             ],
-            "extLink": "https://peter-portal.com",
+            "extLink": "/portal",
             "github": "https://github.com/icssc-projects/PeterPortal",
             "pictures": ["/peterportal.jpg"]
         },
