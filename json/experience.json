@@ -13,17 +13,28 @@
             "AWS",
             "GCP",
             "NodeJS",
+            "Docker",
             "React",
             "Express",
-            "MySQL",
             "Elasticsearch"
+        ]
+    },
+    "lockheed": {
+        "position": "Software Engineer Intern",
+        "company": "Lockheed Martin Space",
+        "companyLink": "https://www.lockheedmartin.com/en-us/capabilities/space.html",
+        "dates": "June 2021 - Present",
+        "responsibilities": [
+            "Developing python scripts to test database commands.",
+            "Integrated scripts into a CI/CD pipeline",
+            "Participated in daily scrum meetings with a team of 8 to discuss progress and roadblocks."
         ]
     },
     "l3harris": {
         "position": "Software Engineer Intern",
         "company": "L3Harris Technologies",
         "companyLink": "https://www.l3harris.com/",
-        "dates": "June 2020 - Present",
+        "dates": "June 2020 - June 2021",
         "responsibilities": [
             "Worked on a GPS Receiver tool in C# under the Navigation System department.",
             "Investigated and fixed bugs under a large code base.",
