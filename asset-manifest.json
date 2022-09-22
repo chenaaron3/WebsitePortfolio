@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.7e439a28.chunk.css",
-    "main.js": "/static/js/main.a39867b2.chunk.js",
-    "main.js.map": "/static/js/main.a39867b2.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.d49aaa73.js",
-    "runtime-main.js.map": "/static/js/runtime-main.d49aaa73.js.map",
-    "static/css/2.451bf2e4.chunk.css": "/static/css/2.451bf2e4.chunk.css",
-    "static/js/2.bebace86.chunk.js": "/static/js/2.bebace86.chunk.js",
-    "static/js/2.bebace86.chunk.js.map": "/static/js/2.bebace86.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.ea8c99eea55cc8fbb22d211d0d25b3c6.js": "/precache-manifest.ea8c99eea55cc8fbb22d211d0d25b3c6.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.451bf2e4.chunk.css.map": "/static/css/2.451bf2e4.chunk.css.map",
-    "static/css/main.7e439a28.chunk.css.map": "/static/css/main.7e439a28.chunk.css.map",
-    "static/media/Navigation.scss": "/static/media/logo.b7d3bfed.jpg"
+    "main.css": "/WebsitePortfolio/static/css/main.f8ebd2e7.chunk.css",
+    "main.js": "/WebsitePortfolio/static/js/main.d1f3e8c1.chunk.js",
+    "main.js.map": "/WebsitePortfolio/static/js/main.d1f3e8c1.chunk.js.map",
+    "runtime-main.js": "/WebsitePortfolio/static/js/runtime-main.90d43d82.js",
+    "runtime-main.js.map": "/WebsitePortfolio/static/js/runtime-main.90d43d82.js.map",
+    "static/css/2.451bf2e4.chunk.css": "/WebsitePortfolio/static/css/2.451bf2e4.chunk.css",
+    "static/js/2.bebace86.chunk.js": "/WebsitePortfolio/static/js/2.bebace86.chunk.js",
+    "static/js/2.bebace86.chunk.js.map": "/WebsitePortfolio/static/js/2.bebace86.chunk.js.map",
+    "index.html": "/WebsitePortfolio/index.html",
+    "precache-manifest.3c388b8b5a14d15ac40251f0cb5cbe96.js": "/WebsitePortfolio/precache-manifest.3c388b8b5a14d15ac40251f0cb5cbe96.js",
+    "service-worker.js": "/WebsitePortfolio/service-worker.js",
+    "static/css/2.451bf2e4.chunk.css.map": "/WebsitePortfolio/static/css/2.451bf2e4.chunk.css.map",
+    "static/css/main.f8ebd2e7.chunk.css.map": "/WebsitePortfolio/static/css/main.f8ebd2e7.chunk.css.map",
+    "static/media/Navigation.scss": "/WebsitePortfolio/static/media/logo.b7d3bfed.jpg"
   }
 }
