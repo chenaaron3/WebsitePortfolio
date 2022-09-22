@@ -44,5 +44,6 @@
   },
   "devDependencies": {
     "sass": "^1.55.0"
-  }
+  },
+  "homepage" : "http://chenaaron3.github.io/WebsitePortfolio"
 }
