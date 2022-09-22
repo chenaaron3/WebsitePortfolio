@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./About.scss";
+import profile from '../Images/profile.jpg'
 
 class About extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class About extends Component {
                         </h3>
                     </div>
                     <div className="about-pic" data-aos="fade-up">
-                        <img src="/profile.jpg" alt="profile"/>
+                        <img src={profile} alt="profile"/>
                     </div>
                 </div>
                 <hr/>

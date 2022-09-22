@@ -11,7 +11,7 @@ class Project extends Component {
             {this.props.pictures.map((url, index) => {
                 if (mobile && index > 0) return <></>;
                 return (<a className="project-image" href={this.props.extLink} target="_blank" rel="noopener noreferrer">
-                    <img data-aos="zoom-in-up" src={url} key={index} height="300" alt=""></img>
+                    <img data-aos="zoom-in-up" src={process.env.PUBLIC_URL + url} key={index} height="300" alt=""></img>
                 </a>)
             })}
             {this.props.picpos === "left" && !mobile && connectorComponent}
