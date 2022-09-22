@@ -1,9 +1,8 @@
 {
     "basics": {
         "name": "Aaron Chen",
-        "standing": "Senior",
-        "major": "Computer Science",
-        "school": "University of California, Irvine"
+        "position": "Software Engineer",
+        "company": "Rubrik"
     },
     "goal": {
         "goal": "to always be learning. Whether it be picking up a new web development framework or studying a new scheduling algorithm, I always strive to further my skills and broaden my knowledge."

@@ -19,13 +19,24 @@
             "Elasticsearch"
         ]
     },
+    "rubrik": {
+        "position": "Full Stack Software Engineer",
+        "company": "Rubrik",
+        "companyLink": "https://www.rubrik.com",
+        "dates": "March 2022 - Present",
+        "responsibilities": [
+            "Develop solutions to detect and recover from malware",
+            "Integrate automated tests into a CI/CD pipeline",
+            "Participate in on-call duties to triage customer issues"
+        ]
+    },
     "lockheed": {
         "position": "Software Engineer Intern",
         "company": "Lockheed Martin Space",
         "companyLink": "https://www.lockheedmartin.com/en-us/capabilities/space.html",
-        "dates": "June 2021 - Present",
+        "dates": "June 2021 - December 2022",
         "responsibilities": [
-            "Develope python scripts to test database commands.",
+            "Develop python scripts to test database commands.",
             "Integrate scripts into a CI/CD pipeline",
             "Participate in daily scrum meetings with a team of 8 to discuss progress and roadblocks."
         ]
@@ -39,27 +50,6 @@
             "Worked on a GPS Receiver tool in C# under the Navigation System department.",
             "Investigated and fixed bugs under a large code base.",
             "Participated in weekly meetings with a team of 4 to discuss progress and roadblocks."
-        ]
-    },
-    "learningSquare": {
-        "position": "Java Instructor",
-        "company": "My Learning Square",
-        "companyLink": "http://mylearningsquare.net/index.html",
-        "dates": "June 2018 - July 2018",
-        "responsibilities": [
-            "Taught middle and high school students the basics of Java programming language.",
-            "Assembled a curriculum and conducted two hour lectures twice a week for six weeks.",
-            "Communicated one-on-one with students to help debug or clarify programming concepts."
-        ]
-    },
-    "greenApple": {
-        "position": "Java Instructor",
-        "company": "Green Apples Education",
-        "companyLink": "https://greenappleseducation.org/",
-        "dates": "July 2019 - August 2019",
-        "responsibilities": [
-            "Taught high school students advanced Java concepts including data structures and sorting algorithms.",
-            "Followed a curriculum and conducted four hour lectures five times a week for three weeks."
         ]
     }
 }

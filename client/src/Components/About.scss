@@ -17,11 +17,11 @@
     align-items: center;
     img{
       width: 100%;
-      transform: rotate(90deg) scale(1, 1);
       transition-duration: 250ms;
+      border-radius: 5px;
     }
     img:hover{
-      transform: rotate(90deg) scale(1.1, 1.1);
+      transform: scale(1.1, 1.1);
     }
   }
 }

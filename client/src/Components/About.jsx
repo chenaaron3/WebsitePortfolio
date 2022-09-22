@@ -28,7 +28,7 @@ class About extends Component {
                 <div id="about-body">
                     <div className="about-txt" data-aos="fade-up">
                         <h3>
-                            Hello World! My name is {this.state.name} and I am a {this.state.standing} {this.state.major} major {this.state.school}. 
+                            Hello World! My name is {this.state.name} and I am a {this.state.position} at {this.state.company}. 
                             <br/><br/>
                             As a computer scientist, my goal is {this.state.goal}
                             <br/><br/>

@@ -10,8 +10,8 @@ class Experience extends Component {
             technologies: [],
             companies: []
         }
-        let endpoints = ["/experience/techStack", "/experience/lockheed", "/experience/l3harris", "/experience/learningSquare", "/experience/greenApple"]
-        this.companies = ["lockheed", "l3harris", "learningSquare", "greenApple"]
+        let endpoints = ["/experience/techStack", "/experience/lockheed", "/experience/l3harris", "/experience/rubrik"]
+        this.companies = ["rubrik", "lockheed", "l3harris"]
         endpoints.forEach(endpoint => {
             fetch(endpoint)
                 .then(res => res.json())
