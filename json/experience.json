@@ -7,16 +7,18 @@
             "Java",
             "Javascript",
             "Python",
-            "SQL"
+            "SQL",
+            "Go"
         ],
         "technologies": [
             "AWS",
             "GCP",
-            "NodeJS",
             "Docker",
             "React",
             "Express",
-            "Elasticsearch"
+            "Jenkins",
+            "GraphQL",
+            "GRPC"
         ]
     },
     "rubrik": {
