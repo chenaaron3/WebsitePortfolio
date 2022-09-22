@@ -14,7 +14,6 @@ import {
 
 // pages
 import StaticApp from "./Pages/Static";
-import LandingApp from "./Pages/Landing";
 import InteractiveApp from './Pages/Interactive';
 
 AOS.init({
