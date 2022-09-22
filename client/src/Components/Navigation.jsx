@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Navigation.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faBars } from "@fortawesome/free-solid-svg-icons";
+import systemsResume from '../Documents/systems.pdf';
+import webDevResume from '../Documents/webDev.pdf';
 
 class Navigation extends Component {
     render() {
@@ -34,9 +36,9 @@ class Navigation extends Component {
                 <div className="nav-resume">
                     <span className="nav-resume-header">Resumes <FontAwesomeIcon icon={faCaretDown} /></span>
                     <div className="nav-resume-content">
-                        <a href="/systems.pdf" target="_blank" rel="noopener noreferrer">Systems</a>
+                        <a href={systemsResume} target="_blank" rel="noopener noreferrer">Systems</a>
                         <hr />
-                        <a href="/webDev.pdf" target="_blank" rel="noopener noreferrer">Web Dev</a>
+                        <a href={webDevResume} target="_blank" rel="noopener noreferrer">Web Dev</a>
                     </div>
                 </div>
             </div>

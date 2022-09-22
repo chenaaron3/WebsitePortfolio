@@ -1,6 +1,8 @@
 import React from 'react';
 import "./Terminal.css"
 import fileSystem from "./data/terminalFileSystem.json"
+import systemsResume from '../Documents/systems.pdf';
+import webDevResume from '../Documents/webDev.pdf';
 
 class Terminal extends React.Component {
     static defaultProps = {
@@ -102,7 +104,14 @@ class Terminal extends React.Component {
                 let currentDirectory = directoryStack[directoryStack.length - 1]
                 // open resumes in new window
                 if (currentDirectory === "Resumes") {
-                    window.open(`/${file}.pdf`, "_blank")
+                    let resume;
+                    if(file == 'systems') {
+                        resume = systemsResume;
+                    }
+                    else if (file == 'webDev') {
+                        resume = webDevResume;
+                    }
+                    window.open(resume, "_blank")
                     this.setState({inputAvailable:true});
                     return;
                 }
