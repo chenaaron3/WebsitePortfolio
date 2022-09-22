@@ -23,7 +23,7 @@ function StaticApp() {
         <hr/>
         <Sidebar/>
         <footer>
-            <a href="https://github.com/chenaaron3/WebsitePortfolio" target="_blank"><h3>Created by Aaron Chen</h3></a>
+            <a href="https://github.com/chenaaron3/WebsitePortfolio" target="_blank" rel="noopener noreferrer"><h3>Created by Aaron Chen</h3></a>
         </footer>
     </div>
   );

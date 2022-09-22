@@ -16,7 +16,8 @@ class Projects extends Component {
                 .then(res => res.json())
                 .then(json => {
                     let split = endpoint.split("/")
-                    let project = split.pop();
+                    // project
+                    split.pop();
                     let category = split.pop();
                     let dic = {}
                     dic[category] = [...this.state[category], json]

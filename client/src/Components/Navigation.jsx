@@ -7,7 +7,7 @@ class Navigation extends Component {
     render() {
         return (
             <div className="nav-bar" data-aos="fade-down">
-                <a href="#introduction" id="home" />
+                <a href="#introduction" id="home"> </a>
                 <FontAwesomeIcon className="nav-burger" icon={faBars} size="lg"/>
                 <ol className="nav-links">
                     <li>
