@@ -1,6 +1,7 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./About.scss";
 import profile from '../Images/profile.jpg'
+import { myFetch } from '../Utils/utils';
 
 class About extends Component {
     constructor(props) {
@@ -14,9 +15,9 @@ class About extends Component {
         }
         let endpoints = ["/about/basics", "/about/goal"]
         endpoints.forEach(endpoint => {
-            fetch(endpoint)
-            .then(res => res.json())
-            .then(json => this.setState(json));
+            myFetch(endpoint)
+                .then(res => res.json())
+                .then(json => this.setState(json));
         })
     }
 
@@ -29,20 +30,20 @@ class About extends Component {
                 <div id="about-body">
                     <div className="about-txt" data-aos="fade-up">
                         <h3>
-                            Hello World! My name is {this.state.name} and I am a {this.state.position} at {this.state.company}. 
-                            <br/><br/>
+                            Hello World! My name is {this.state.name} and I am a {this.state.position} at {this.state.company}.
+                            <br /><br />
                             As a computer scientist, my goal is {this.state.goal}
-                            <br/><br/>
-                            To achieve this goal, I follow the principles of 'Learn By Doing'. The majority of my 
-                            learning process involves hands-on projects. This portfolio showcases some 
-                            of those projects. 
+                            <br /><br />
+                            To achieve this goal, I follow the principles of 'Learn By Doing'. The majority of my
+                            learning process involves hands-on projects. This portfolio showcases some
+                            of those projects.
                         </h3>
                     </div>
                     <div className="about-pic" data-aos="fade-up">
-                        <img src={profile} alt="profile"/>
+                        <img src={profile} alt="profile" />
                     </div>
                 </div>
-                <hr/>
+                <hr />
             </div>
         );
     }
