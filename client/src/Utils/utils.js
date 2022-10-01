@@ -1,4 +1,4 @@
-const API_URL = 'http://Websiteportfolio-env.eba-2cemyy2v.us-west-1.elasticbeanstalk.com'
+const API_URL = 'https://Websiteportfolio-env.eba-2cemyy2v.us-west-1.elasticbeanstalk.com'
 
 export function myFetch(url, ...args){
     if (url.startsWith('/')) {
