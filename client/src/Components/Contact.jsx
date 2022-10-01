@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Contact.scss";
+import { myFetch } from '../Utils/utils';
 
 class Contact extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class Contact extends Component {
         }
         let endpoints = ["/contact/basics"]
         endpoints.forEach(endpoint => {
-            fetch(endpoint)
+            myFetch(endpoint)
                 .then(res => res.json())
                 .then(json => this.setState(json));
         })
@@ -29,7 +30,7 @@ class Contact extends Component {
 
         const comp = this;
 
-        fetch("/contact/email", {
+        myFetch("/contact/email", {
             method: 'post', // *GET, POST, PUT, DELETE, etc.
             headers: {
                 'Content-Type': 'application/json'

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Projects.scss";
 import Project from "./Project";
+import { myFetch } from '../Utils/utils';
 
 class Projects extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class Projects extends Component {
         let endpoints = ["/projects/webDev/stocks", "/projects/webDev/peterPortal", "/projects/webDev/portfolio", "/projects/webDev/allergize",
             "/projects/systems/allocator", "/projects/systems/shell", "/projects/systems/pintos"];
         endpoints.forEach(endpoint => {
-            fetch(endpoint)
+            myFetch(endpoint)
                 .then(res => res.json())
                 .then(json => {
                     let split = endpoint.split("/")
