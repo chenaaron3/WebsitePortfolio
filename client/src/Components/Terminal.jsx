@@ -3,6 +3,7 @@ import "./Terminal.css"
 import fileSystem from "./data/terminalFileSystem.json"
 import systemsResume from '../Documents/systems.pdf';
 import webDevResume from '../Documents/webDev.pdf';
+import { myFetch } from '../Utils/utils';
 
 class Terminal extends React.Component {
     static defaultProps = {
@@ -121,7 +122,7 @@ class Terminal extends React.Component {
                 if (contents.charAt(0) === "/") {
                     let ref = this;
                     // form component based on api call
-                    fetch(contents)
+                    myFetch(contents)
                         .then(res => res.json())
                         .then(json => {
                             Object.keys(json).forEach(key => {
@@ -453,7 +454,7 @@ class Terminal extends React.Component {
             // if file exists
             if(newDirRef.hasOwnProperty(file)) {
                 if(typeof newDirRef[file] === "string") {
-                    fetch(newDirRef[file])
+                    myFetch(newDirRef[file])
                     .then(res => res.json())
                     .then(json => {
                         // if is an executable
@@ -515,7 +516,7 @@ class Terminal extends React.Component {
         readMessage = (message) => {
             msg.text = message;
             let ref = this;
-            fetch("/contact/email", {
+            myFetch("/contact/email", {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json'
