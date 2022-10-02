@@ -1,0 +1,27 @@
+service: website-portfolio
+useDotenv: true
+
+plugins:
+  - serverless-dotenv-plugin
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: us-east-1
+  stage: prod
+  apiGateway:
+    binaryMediaTypes:
+      - 'image/*'
+
+functions:
+  app:
+    handler: app/app.handler
+    events: 
+      - http: 
+          path: /
+          method: ANY
+          cors: true
+      - http: 
+          path: /{proxy+}
+          method: ANY
+          cors: true
