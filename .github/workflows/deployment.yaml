@@ -61,6 +61,9 @@ jobs:
         run: |
           printf "SENDGRID_API_KEY=$SENDGRID_API_KEY" > .env
       
+      - name: Install Dev Dependencies
+        run: npm install --only=dev
+
       - name: Serverless Deploy
         uses: serverless/github-action@v3.1
         with:
