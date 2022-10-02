@@ -55,4 +55,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports.handler = serverless(app);
+// export for local dev
+module.exports = app;
+// export for serverless
+module.exports.handler =  serverless(app, { binary: ['image/*'] });

@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import axios from 'axios';
 
 // redirect relative paths to server url
-axios.defaults.baseURL = 'https://chenaaron.us-west-1.elasticbeanstalk.com';
+axios.defaults.baseURL = 'https://7w0vhh81gl.execute-api.us-east-1.amazonaws.com/prod';
 
 ReactDOM.render(
     <Router basename={process.env.PUBLIC_URL}>
