@@ -3,11 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "setup": "npm install && cd client && npm install && npm run build",
-    "heroku-postbuild": "cd client && npm install && npm run build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "@sendgrid/mail": "^6.4.0",

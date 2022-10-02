@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Projects.scss";
 import Project from "./Project";
-import { myFetch } from '../Utils/utils';
+import axios from 'axios';
 
 class Projects extends Component {
     constructor(props) {
@@ -13,15 +13,14 @@ class Projects extends Component {
         let endpoints = ["/projects/webDev/stocks", "/projects/webDev/peterPortal", "/projects/webDev/portfolio", "/projects/webDev/allergize",
             "/projects/systems/allocator", "/projects/systems/shell", "/projects/systems/pintos"];
         endpoints.forEach(endpoint => {
-            myFetch(endpoint)
-                .then(res => res.json())
-                .then(json => {
+            axios.get(endpoint)
+                .then(res => {
                     let split = endpoint.split("/")
                     // project
                     split.pop();
                     let category = split.pop();
                     let dic = {}
-                    dic[category] = [...this.state[category], json]
+                    dic[category] = [...this.state[category], res.data]
                     this.setState(dic);
                 });
         })

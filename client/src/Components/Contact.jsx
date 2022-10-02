@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Contact.scss";
-import { myFetch } from '../Utils/utils';
+import axios from 'axios';
 
 class Contact extends Component {
     constructor(props) {
@@ -14,9 +14,8 @@ class Contact extends Component {
         }
         let endpoints = ["/contact/basics"]
         endpoints.forEach(endpoint => {
-            myFetch(endpoint)
-                .then(res => res.json())
-                .then(json => this.setState(json));
+            axios.get(endpoint)
+                .then(res => this.setState(res.data));
         })
     }
 
@@ -30,24 +29,17 @@ class Contact extends Component {
 
         const comp = this;
 
-        myFetch("/contact/email", {
-            method: 'post', // *GET, POST, PUT, DELETE, etc.
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(msg) // body data type must match "Content-Type" header
-        }).then(function (response) {
-            if (response.status === 200) {
-                comp.setState({
-                    senderEmail: "",
-                    subject: "",
-                    message: ""
-                });
-            }
-            return response.text();
-        }).then(function (data) {
-            alert(data);
-        })
+        axios.post("/contact/email", msg)
+            .then(response => {
+                if (response.status === 200) {
+                    comp.setState({
+                        senderEmail: "",
+                        subject: "",
+                        message: ""
+                    });
+                }
+                alert(response.data);
+            })
 
         event.preventDefault();
     }

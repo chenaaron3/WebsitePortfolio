@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./About.scss";
 import profile from '../Images/profile.jpg'
-import { myFetch } from '../Utils/utils';
+import axios from 'axios';
 
 class About extends Component {
     constructor(props) {
@@ -15,9 +15,10 @@ class About extends Component {
         }
         let endpoints = ["/about/basics", "/about/goal"]
         endpoints.forEach(endpoint => {
-            myFetch(endpoint)
-                .then(res => res.json())
-                .then(json => this.setState(json));
+            axios.get(endpoint)
+                .then(res => {
+                    this.setState(res.data)
+                })
         })
     }
 

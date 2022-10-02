@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import "./Introduction.scss";
-import { myFetch } from '../Utils/utils';
+import axios from 'axios';
 
 class Introduction extends Component {
     constructor(props) {
@@ -13,9 +13,8 @@ class Introduction extends Component {
         }
         let endpoints = ["/about/basics"]
         endpoints.forEach(endpoint => {
-            myFetch(endpoint)
-            .then(res => res.json())
-            .then(json => this.setState(json));
+            axios.get(endpoint)
+                .then(res => this.setState(res.data));
         })
     }
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Experience.scss";
 import Work from "./Work";
-import { myFetch } from '../Utils/utils';
+import axios from 'axios';
 
 class Experience extends Component {
     constructor(props) {
@@ -14,15 +14,14 @@ class Experience extends Component {
         let endpoints = ["/experience/techStack", "/experience/lockheed", "/experience/l3harris", "/experience/rubrik"]
         this.companies = ["rubrik", "lockheed", "l3harris"]
         endpoints.forEach(endpoint => {
-            myFetch(endpoint)
-                .then(res => res.json())
-                .then(json => {
+            axios.get(endpoint)
+                .then(res => {
                     let end = endpoint.split("/").pop();
                     if (this.companies.includes(end)) {
-                        this.setState({ companies: [...this.state.companies, json] });
+                        this.setState({ companies: [...this.state.companies, res.data] });
                     }
                     else {
-                        this.setState(json);
+                        this.setState(res.data);
                     }
                 });
         })

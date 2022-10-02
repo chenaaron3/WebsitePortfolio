@@ -3,7 +3,7 @@ import "./Terminal.css"
 import fileSystem from "./data/terminalFileSystem.json"
 import systemsResume from '../Documents/systems.pdf';
 import webDevResume from '../Documents/webDev.pdf';
-import { myFetch } from '../Utils/utils';
+import axios from 'axios';
 
 class Terminal extends React.Component {
     static defaultProps = {
@@ -19,7 +19,7 @@ class Terminal extends React.Component {
             let value = this.state.commands[command];
             this.pushText(<><span className="terminal-command">{command}</span>{value.usage ? value.usage : ""}: {value.description}</>);
         })
-        this.setState({inputAvailable:true});
+        this.setState({ inputAvailable: true });
     }
 
     // clear state and buffer
@@ -29,7 +29,7 @@ class Terminal extends React.Component {
             inputValue: ""
         });
         this.buffer = [];
-        this.setState({inputAvailable:true});
+        this.setState({ inputAvailable: true });
     }
 
     // change the directory
@@ -48,7 +48,7 @@ class Terminal extends React.Component {
         else {
             this.setState({ currentDirectory: newDir, currentDirectoryRef: newDirRef });
         }
-        this.setState({inputAvailable:true});
+        this.setState({ inputAvailable: true });
     }
 
     // list directory
@@ -70,7 +70,7 @@ class Terminal extends React.Component {
         return (
             <div className="terminal-ls">
                 {Object.keys(dirRef).map((value, index) => {
-                    if (value == ".."){
+                    if (value == "..") {
                         return;
                     }
                     if (typeof this.state.currentDirectoryRef[value] === "object") {
@@ -106,14 +106,14 @@ class Terminal extends React.Component {
                 // open resumes in new window
                 if (currentDirectory === "Resumes") {
                     let resume;
-                    if(file == 'systems') {
+                    if (file == 'systems') {
                         resume = systemsResume;
                     }
                     else if (file == 'webDev') {
                         resume = webDevResume;
                     }
                     window.open(resume, "_blank")
-                    this.setState({inputAvailable:true});
+                    this.setState({ inputAvailable: true });
                     return;
                 }
                 // get string content
@@ -122,9 +122,9 @@ class Terminal extends React.Component {
                 if (contents.charAt(0) === "/") {
                     let ref = this;
                     // form component based on api call
-                    myFetch(contents)
-                        .then(res => res.json())
-                        .then(json => {
+                    axios.get(contents)
+                        .then(res => {
+                            let json = res.data;
                             Object.keys(json).forEach(key => {
                                 let text = json[key].toString();
                                 text = text.includes("http") || text.charAt(0) == "/" ? <a href={text} target="_blank" rel="noopener noreferrer" className="terminal-link">{text}</a> : text;
@@ -136,11 +136,11 @@ class Terminal extends React.Component {
                                 </>);
                             });
                             this.flush();
-                            this.setState({inputAvailable:true}, this.focusInput);
+                            this.setState({ inputAvailable: true }, this.focusInput);
                         })
                         .catch(err => {
                             console.log(err)
-                            this.setState({inputAvailable:true}, this.focusInput);
+                            this.setState({ inputAvailable: true }, this.focusInput);
                         })
                 }
                 else {
@@ -168,7 +168,7 @@ class Terminal extends React.Component {
         else if (dir.match(/[A-Za-z0-9]/g)) {
             // create empty directory
             this.state.currentDirectoryRef[dir] = { "..": this.state.currentDirectoryRef }
-            this.setState({inputAvailable:true});
+            this.setState({ inputAvailable: true });
         }
         else {
             return `Directory name must be in alphanumeric form!`
@@ -381,7 +381,7 @@ class Terminal extends React.Component {
         // if path is valid
         if (success) {
             let possibleMatches = [];
-            var re = new RegExp(`^${file.toLowerCase()}.*$`,"g");
+            var re = new RegExp(`^${file.toLowerCase()}.*$`, "g");
             // find files in directory that match
             Object.keys(newDirRef).forEach(f => {
                 if (f.toLowerCase().match(re)) {
@@ -392,8 +392,8 @@ class Terminal extends React.Component {
             if (possibleMatches.length == 1) {
                 directory.push(possibleMatches[0])
                 words.push(directory.join("/"));
-                this.setState({ inputValue: words.join(" ")})
-            }        
+                this.setState({ inputValue: words.join(" ") })
+            }
         }
     }
 
@@ -417,13 +417,13 @@ class Terminal extends React.Component {
         // if command is valid
         if (this.state.commands.hasOwnProperty(command)) {
             // disable inputs
-            this.setState({inputAvailable: false})
+            this.setState({ inputAvailable: false })
             // execute the command
             let result = this.state.commands[command].fn(args);
             // push to output
             if (result) {
                 this.pushText(result);
-                this.setState({inputAvailable: true})
+                this.setState({ inputAvailable: true })
             }
         }
         // if trying to execute a file
@@ -452,25 +452,24 @@ class Terminal extends React.Component {
         }
         else {
             // if file exists
-            if(newDirRef.hasOwnProperty(file)) {
-                if(typeof newDirRef[file] === "string") {
-                    myFetch(newDirRef[file])
-                    .then(res => res.json())
-                    .then(json => {
-                        // if is an executable
-                        if(json.executable) {
-                            if (json.executable === "sendEmail") this.sendEmail();
-                        }
-                        else {
-                            this.pushText(`'${file}' is a file!`);
-                        }
-                        this.flush();
-                    })
+            if (newDirRef.hasOwnProperty(file)) {
+                if (typeof newDirRef[file] === "string") {
+                    axios.get(newDirRef[file])
+                        .then(res => {
+                            // if is an executable
+                            if (res.data.executable) {
+                                if (res.data.executable === "sendEmail") this.sendEmail();
+                            }
+                            else {
+                                this.pushText(`'${file}' is a file!`);
+                            }
+                            this.flush();
+                        })
                 }
                 // not a file
                 else {
                     this.pushText(`'${file}' is a directory!`);
-                }                
+                }
             }
             // file does not exist
             else {
@@ -516,24 +515,18 @@ class Terminal extends React.Component {
         readMessage = (message) => {
             msg.text = message;
             let ref = this;
-            myFetch("/contact/email", {
-                method: 'post',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(msg)
-            })
-            .then(function(response) {
-                ref.executableFunction = undefined;
-                if(response.status === 200){
-                    ref.pushText(<span className="terminal-file terminal-usage">Email Sent!</span>);
-                    ref.flush();
-                }
-                else {
-                    ref.pushText(<span style={{color:"red"}}>Invalid Email!</span>)
-                    ref.flush();
-                }
-            });
+            axios.post("/contact/email", msg)
+                .then(function (response) {
+                    ref.executableFunction = undefined;
+                    if (response.status === 200) {
+                        ref.pushText(<span className="terminal-file terminal-usage">Email Sent!</span>);
+                        ref.flush();
+                    }
+                    else {
+                        ref.pushText(<span style={{ color: "red" }}>Invalid Email!</span>)
+                        ref.flush();
+                    }
+                });
         }
         this.pushText("Enter your email:");
         this.executableFunction = readEmail;
@@ -550,7 +543,7 @@ class Terminal extends React.Component {
                     ))
                 }
                 {
-                    this.state.inputAvailable && 
+                    this.state.inputAvailable &&
                     <div className="terminal-input-area">
                         {!this.executableFunction && this.getPromptComponent()}
                         <input className="terminal-input"
