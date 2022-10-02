@@ -61,5 +61,5 @@ typings/
 .next
 
 #SERVERLESS STUFF
-.serverless
-.idea
+.serverless/
+.idea/
