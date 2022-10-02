@@ -61,13 +61,11 @@ jobs:
         run: |
           printf "SENDGRID_API_KEY=$SENDGRID_API_KEY" > .env
       
-      - name: Install Dev Dependencies
-        run: npm install --only=dev
-
-      - name: Serverless Deploy
+      - name: Install Plugin and Deploy
         uses: serverless/github-action@v3.1
         with:
-          args: deploy
+          args: -c "serverless plugin install --name serverless-dotenv-plugin && serverless deploy"
+          entrypoint: /bin/sh
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
