@@ -23,9 +23,9 @@ class Contact extends Component {
     handleSubmit = (event) => {
         const msg = {
             to: 'chenaaron3@gmail.com',
-            from: this.state.senderEmail,
+            from: 'chenaaron3@gmail.com',
             subject: this.state.subject,
-            text: this.state.message
+            text: `Email from: ${this.state.senderEmail}\n` + this.state.message
         };
 
         const comp = this;
