@@ -49,6 +49,18 @@
             "extLink": "/stocks",
             "github": "https://github.com/chenaaron3/Stonks",
             "pictures": ["/stocks.jpg"]
+        },
+        "syft": {
+            "title": "Syft",
+            "description": "Founded a Saas that converts long youtube videos into multiple short form clips.",
+            "tags": [
+                "NextJS",
+                "AWS",
+                "ChatGPT",
+                "Python"
+            ],
+            "extLink": "https://syft.pro",
+            "pictures": ["/syft.jpg"]
         }
     },
     "systems": {
