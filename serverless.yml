@@ -4,6 +4,11 @@ useDotenv: true
 plugins:
   - serverless-dotenv-plugin
 
+package:
+  patterns:
+    - '!node_modules/**'
+    - '!client/**'
+
 provider:
   name: aws
   runtime: nodejs16.x
